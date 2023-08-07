@@ -1,7 +1,7 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
-let highScore = JSON.parse(localStorage.getItem("user"));
+let highScore = JSON.parse(localStorage.getItem("highScore"));
 
 ctx.fillStyle = "green";
 ctx.strokeStyle = "blue";
@@ -126,9 +126,9 @@ function gameOver() {
 
   if (highScore < snake.bodyParts.length) {
     highScore = snake.bodyParts.length - 1;
-    localStorage.setItem("user", JSON.stringify(highScore));
+    localStorage.setItem("highScore", JSON.stringify(highScore));
   }
-  highScore = JSON.parse(localStorage.getItem("user"));
+  highScore = JSON.parse(localStorage.getItem("highScore"));
   drawGameOver();
 }
 
@@ -137,7 +137,7 @@ let gameState = "active";
 
 const snake = {
   bodyParts: [
-    /*{x:10,y:16},{x:9,y:16},{x:8,y:16},{x:7,y:16},{x:6,y:16},{x:5,y:16},{x:4,y:16},{x:3,y:16},{x:2,y:16},{x:1,y:16},*/ {
+    {
       x: 0,
       y: 16,
     },
